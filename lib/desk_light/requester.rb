@@ -32,8 +32,35 @@ module DeskLight
       )
       DeskLight::Response.new(access_token.get(_url))
     end
-    def self.download _url
-      open(_url).read.force_encoding("UTF-8")
+
+
+    def self.download _url, _authenticate = true
+      uri = URI.parse(_url)
+      path = uri.path
+      path << "?#{uri.query}" if (uri.query || "").strip != ""
+      if _authenticate
+        consumer = OAuth::Consumer.new(
+          DeskLight.config.key,
+          DeskLight.config.secret,
+          scheme: :header
+        )
+        access_token = OAuth::AccessToken.from_hash(
+          consumer,
+          oauth_token: DeskLight.config.api_token,
+          oauth_token_secret: DeskLight.config.api_secret
+        )
+        response = access_token.get(_url)
+      else
+        http = Net::HTTP.new(uri.host,uri.port)
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        http.use_ssl = DeskLight.config.uri.scheme == 'https'
+        request = Net::HTTP::Get.new(path)
+        response = http.request(request)
+      end
+      if location = response['location']
+        return self.download(location,false)
+      end
+      DeskLight::Response.new(response)
     end
   end
 end

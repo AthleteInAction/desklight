@@ -15,4 +15,7 @@ module DeskLight
   def self.get *args
     DeskLight::Requester.get(*args)
   end
+  def self.download _url
+    DeskLight::Requester.download(_url)
+  end
 end

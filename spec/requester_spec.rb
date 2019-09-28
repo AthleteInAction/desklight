@@ -32,4 +32,12 @@ describe DeskLight do
   end
 
 
+  context "Download Attachment" do
+    it "Respond with file content" do
+      request = DeskLight.download("https://higherlogic.desk.com/api/v2/cases/159406/attachments/493105174/url")
+      expect(request.code).to eq(200)
+    end
+  end
+
+
 end
