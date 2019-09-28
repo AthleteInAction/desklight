@@ -1,3 +1,7 @@
-subdomain: A
-email: B
-password: C
+subdomain: higherlogic
+email: rjanik@higherlogic.com
+password:
+key: sjlGd7ZuWQAdGzGCsllV
+secret: nZpsjHhbnKVSMMZFEuEHBIlaTzEH6OSPiFT0Warp
+api_token: fzw3QlWeuQslykOHmAfA
+api_secret: EFqJdK6S9XPee90tsxBF1hA9L9yTTSqrW7sxRrvC

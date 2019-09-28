@@ -1,5 +1,6 @@
 require 'desk_light/version'
 require 'desk_light/configuration'
+require 'desk_light/requester'
 
 
 module DeskLight
@@ -10,5 +11,8 @@ module DeskLight
   end
   def self.config
     @config || self.configure
+  end
+  def self.get *args
+    DeskLight::Requester.get(*args)
   end
 end

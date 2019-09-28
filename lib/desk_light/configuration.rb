@@ -10,6 +10,10 @@ module DeskLight
     end
     attr_accessor :email
     attr_accessor :password
+    attr_accessor :key
+    attr_accessor :secret
+    attr_accessor :api_token
+    attr_accessor :api_secret
     def initialize
       self.rpm = 300
       self.api_path = "/api/v2"

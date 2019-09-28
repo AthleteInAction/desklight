@@ -1,2 +1,4 @@
 --require spec_helper
 --require desk_light
+--require awesome_print
+--require colorize
