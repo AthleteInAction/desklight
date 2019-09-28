@@ -31,9 +31,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "awesome_print"
-  spec.add_development_dependency "colorize"
+  spec.add_development_dependency "rspec", "~> 3.8"
+  spec.add_development_dependency "awesome_print", "~> 1.8"
+  spec.add_development_dependency "colorize", "~> 0.8"
 
   spec.add_dependency "oauth", "~> 0.5"
 end

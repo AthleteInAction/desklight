@@ -30,12 +30,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
+  awesome_print (~> 1.8)
   bundler (~> 2.0)
-  colorize
+  colorize (~> 0.8)
   desklight!
   rake (~> 10.0)
-  rspec
+  rspec (~> 3.8)
 
 BUNDLED WITH
    2.0.2
