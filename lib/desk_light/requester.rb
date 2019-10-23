@@ -5,21 +5,11 @@ require 'oauth'
 
 module DeskLight
   module Requester
-    def self.get *args
-      _uri = URI.parse("https://#{DeskLight.config.subdomain}.desk.com" << DeskLight.config.api_path << "/" << args.first.to_s)
-      _params = CGI.parse(_uri.query || "")
-      _path = DeskLight.config.api_path
-      args.shift
-      args.each do |arg|
-        case arg.class.name
-        when 'Symbol','String','Integer'
-          _path << "/" << arg.to_s
-        when 'Hash'
-          _params.merge!(arg)
-        end
-      end
+    def self.get _path, _params = {}
+      _uri = URI.parse("https://#{DeskLight.config.subdomain}.desk.com" << _path)
+      _new_params = CGI.parse(_uri.query || "").merge!(_params)
       _url = "#{_uri.scheme}://#{_uri.host}#{_uri.path}"
-      _url << "?#{URI.encode_www_form(_params)}" if _params.count > 0
+      _url << "?#{URI.encode_www_form(_new_params)}" if _new_params.count > 0
       consumer = OAuth::Consumer.new(
         DeskLight.config.key,
         DeskLight.config.secret,
