@@ -11,7 +11,7 @@ GEM
     colorize (0.8.1)
     diff-lcs (1.3)
     oauth (0.5.4)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -34,7 +34,7 @@ DEPENDENCIES
   bundler (~> 2.0)
   colorize (~> 0.8)
   desklight!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.8)
 
 BUNDLED WITH
